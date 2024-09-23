@@ -1,0 +1,144 @@
+/* Global Styling */
+body {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image cover the full width */
+    height: 100%; /* Make the image cover the full height */
+    background-image: url('https://media.istockphoto.com/id/2159894213/vector/credit-card-shopping-and-secure-payment-grocery-shopping-basket-with-credit-card-and-bill.jpg?s=612x612&w=0&k=20&c=tbK7oagVt-rvvYlwmt31v-NZOGQWvxTDaM2WEyEV9hs=');
+    background-size: cover; /* Ensure the image covers the entire screen */
+    background-position: center; /* Center the image */
+    filter: blur(5px); /* Apply a 5px blur */
+    z-index: -1; /* Keep background behind content */
+}
+
+/* Ensuring the icon is placed correctly in the input field */
+.input-group {
+    position: relative;
+}
+
+.toggle-password {
+    cursor: pointer;
+    color: #000000;
+}
+
+.input-group-append {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none; /* Initially hidden, can be shown on validation error */
+}
+
+
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align at the top */
+    margin-top: 10px; /* Add margin from the top */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Truly center the logo */
+}
+
+.logo-img {
+    width: 300px; /* Increase the logo size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
+}
+
+/* Main Container Styling */
+.container {
+    padding: 20px; /* Padding inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    width: 650px; /* Adjust width */
+    margin: 100px 0 100px -900px; /* Add vertical margin, move container 50px from the left */
+    background-size: contain;
+    background-position: center;
+    filter: brightness(0.9); /* Slight darkening effect */
+}
+
+input[type="text"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+input[type="email"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+input[type="text"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+input[type="password"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+input[type="password"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+/* Text and Form Styling */
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -80px; /* Move the heading 20px upwards */
+    font-weight: bold;
+    color: #b32c2c; /* Dark color for better contrast */
+    font-size: 40px; /* Use 'font-size' instead of 'size' */
+}
+
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    opacity: 0.9; /* Slight transparency */
+}
+
+.btn-primary {
+    width: auto; /* Reduce button width */
+    padding: 10px 20px; /* Add some padding for a better look */
+    margin: auto; /* Center the button */
+    display: block; /* Make the button a block element */
+}
+
+/* Image Styling */
+.left-image img {
+    width: 70%; /* Resize image */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 70%; /* Limit height */
+    object-fit: cover; /* Maintain aspect ratio while covering */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8); /* Shadow for depth */
+    transform: translate(50px, 50px); /* Position adjustment */
+}
+
+/* Optional for Left or Right Containers */
+.container.left {
+    margin-left: 10px; /* Shift container to the left */
+}
+
+.container.right {
+    margin-right: 10px; /* Shift container to the right */
+}

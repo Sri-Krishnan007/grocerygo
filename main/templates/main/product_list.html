@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GroceryGO</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .modal-content {
+            text-align: left;
+        }
+        .category-dropdown {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GroceryGO</h1>
+        <form method="get" action="{% url 'product_list' %}" class="form-inline">
+            <input type="text" name="query" class="form-control mr-2" style="width: 300px;" placeholder="Search products" value="{{ request.GET.query }}">
+            <button type="submit" class="btn btn-success">Search</button>
+            <input type="hidden" name="category" value="{{ selected_category }}">
+        </form>
+        {% if user.is_authenticated %}
+            <button class="btn btn-outline-light profile-button" data-toggle="modal" data-target="#profileModal">Cart</button>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
+        {% endif %}
+    </header>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Cart Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <a href="{% url 'cart_view' %}" class="btn btn-primary">View Cart</a>
+                </div>
+                <div class="modal-footer">
+                    <form method="post" action="{% url 'main_page' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="category-dropdown">
+        <form method="get" action="{% url 'product_list' %}">
+            <div class="form-group">
+                <select name="category" class="form-control" onchange="this.form.submit()">
+                    <option value="all" {% if selected_category == 'all' or not selected_category %}selected{% endif %}>All Categories</option>
+                    {% for category in categories %}
+                        <option value="{{ category.name }}" {% if category.name == selected_category %}selected{% endif %}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="hidden" name="query" value="{{ request.GET.query }}">
+        </form>
+    </div>
+
+    <section>
+        <h2>
+            {% if selected_category and selected_category != 'all' %}
+                Products in {{ selected_category }}
+            {% else %}
+                All Products
+            {% endif %}
+        </h2>
+
+        <!-- User Profile Information -->
+        {% if user_profile %}
+            <div class="user-info">
+                <h5>User Profile</h5>
+                <p><strong>Name:</strong> {{ user_profile.name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone No:</strong> {{ user_profile.phone_number }}</p>
+
+            </div>
+        {% endif %}
+
+        <div class="row" id="productList">
+            {% if products %}
+                {% for product in products %}
+                    <div class="col-md-4 mb-4 product-item" data-category="{{ product.category.name }}">
+                        <div class="card">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <p class="text-success"><strong>{{ product.price }}</strong></p>
+                                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View details</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No products found matching your criteria.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

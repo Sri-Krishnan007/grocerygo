@@ -1,0 +1,103 @@
+/* Body styling with a white background */
+body {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: white; /* White background for the body */
+}
+
+/* Background image for the body */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-image: url('https://images.unsplash.com/photo-1695654390723-479197a8c4a3?q=80&w=2034&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');*/
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Apply a 5px blur */
+    z-index: -1; /* Make sure the background stays behind all content */
+}
+
+/* CSS to slightly increase the size of the image */
+.logo-img {
+    width: 300px; /* Increase the width (slightly larger than 150px) */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Keep the circular shape */
+}
+
+
+/* Container with background image and styling */
+.container {
+    /*background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(233, 22, 22, 0.5);
+    width: 600px; /* Decrease max width */
+    height: 400px; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center horizontally and add vertical spacing */
+    position: relative; /* Allows positioning of child elements */
+    top: 10%; /* Move down from the top */
+    background-image: url('https://media.gettyimages.com/id/1223808545/photo/paper-bag-with-food-donation-and-home-delivery.jpg?s=612x612&w=0&k=20&c=s3i2PblNIUn-ySdUSy-mUIHkLMFt_o9Rx_V55ZDX3w4='); /* Background image for the container */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9); /* Darken the container background slightly */
+    transform: translate(10px,-40px); /* Move the image down */
+}
+
+/* Move container left or right (use margin) */
+.container.left {
+    margin-left: 10px; /* Moves the container 10px to the left */
+}
+
+.container.right {
+    margin-right: 10px; /* Moves the container 10px to the right */
+}
+
+input[type="email"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+input[type="password"] {
+    opacity: 0.5; /* Decrease opacity to 80% */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom:50px;
+    font-weight: bold;
+    color: #0f00e4;
+    font-size: 36px; /* Increase the font size */
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    width: auto; /* Reduce button width */
+    padding: 10px 20px; /* Add some padding for a better look */
+    margin: auto; /* Center the button */
+    display: block; /* Make the button a block element */
+}
+
+.input-group {
+    position: relative;
+}
+
+.toggle-password {
+    cursor: pointer;
+    color: #000000;
+}
+
+.input-group-append {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}

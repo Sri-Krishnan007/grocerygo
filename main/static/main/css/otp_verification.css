@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1695654390723-479197a8c4a3?q=80&w=2034&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-color: aliceblue;
+    margin: 0; /* Remove default body margin */
+}
+
+.logo-container {
+    margin-bottom: 2rem; /* Space below the logo */
+    transform: translateY(-30%);
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 3rem; /* Increased padding */
+    width: 400px; /* Increased width */
+    text-align: center; /* Center text in the container */
+    transform: translateY(-100%);
+}
+
+
+h2 {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    width: 50%;
+}

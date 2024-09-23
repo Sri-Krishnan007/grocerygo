@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - GroceryGO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'main/Images/LOGO.png' %}" type="image/x-icon">
+    <style>
+        .alert-warning {
+            border-color: #ffc107;
+            color: #856404;
+            background-color: #fff3cd;
+        }
+        .alert-warning a {
+            font-weight: bold;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="{% static 'main/Images/LOGO.png' %}" alt="Logo" class="logo-img img-fluid mb-4">
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">GroceryGO</a>
+            <div>
+                <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-outline-primary">Signup</a>
+            </div>
+        </nav>
+        <div class="mt-5">
+            <h1>Welcome to GroceryGO</h1>
+            <p>Your favorite online grocery store.</p>
+            <div id="popupMessage" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+                <strong>Welcome to GroceryGO!</strong><br>
+                If you are a new user, <a href="{% url 'signup' %}">sign up now</a> to discover our exciting products.<br>
+                Already a user? <a href="{% url 'login' %}">Login</a> to access your account.
+                <button type="button" class="close" onclick="document.getElementById('popupMessage').style.display='none'">&times;</button>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript file link at the end of the body -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var popup = document.getElementById("popupMessage");
+                if (popup) {
+                    popup.style.display = "block";
+                } else {
+                    console.error("Popup message element not found!");
+                }
+            }, 10000); // Display popup after 10 seconds
+        });
+    </script>
+</body>
+</html>
