@@ -1,25 +1,29 @@
-GroceryGo 🛒
 
-GroceryGo is a simple Django-based web application for managing and browsing grocery products. 
-The site leverages Bootstrap for responsive design and uses MySQL as the database backend. 
-The admin has exclusive privileges to add and manage products, while users can view the available products.
-Features
+# GroceryGo 🛒
 
-Admin Panel:  
+GroceryGo is a simple Django-based web application for managing and browsing grocery products. The site leverages Bootstrap for responsive design and uses MySQL as the database backend. The admin has exclusive privileges to add and manage products, while users can view the available products.
+
+---
+
+## Features
+
+- **Admin Panel**:  
   Admin can log in to a secure admin panel to add, update, or delete grocery products.
   
-Product Catalog:  
+- **Product Catalog**:  
   A user-friendly product listing page displays available grocery items.
 
-Responsive Design:  
+- **Responsive Design**:  
   Bootstrap integration ensures a sleek and mobile-friendly interface.
 
- Tech Stack
+---
 
-Backend: Django 
-Frontend: Bootstrap 
-Database: MySQL
-Environment: Python 3.8+  
+## Tech Stack
+
+- **Backend**: Django 
+- **Frontend**: Bootstrap 
+- **Database**: MySQL
+- **Environment**: Python 3.8 
 
 ---
 
@@ -100,22 +104,6 @@ Environment: Python 3.8+
 
 ---
 
-## Folder Structure
-
-```
-grocerygo/
-├── grocerygo/        # Project configuration files
-├── products/         # App for managing products
-│   ├── migrations/   # Database migrations
-│   ├── templates/    # HTML templates
-│   ├── static/       # Bootstrap and custom CSS/JS
-├── db.sqlite3        # Default SQLite DB (for testing)
-├── requirements.txt  # Python dependencies
-└── manage.py         # Django's command-line utility
-```
-
----
-
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
@@ -128,19 +116,12 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
---- 
 
 ## Contact
 
 For any questions or suggestions, feel free to reach out:
 
-- **Email**: your-email@example.com  
-- **GitHub**: [your-username](https://github.com/your-username)
+- **Email**: srikrish2705guru@gmail.com
 
 --- 
-
-Feel free to adjust the content as per your requirements!
